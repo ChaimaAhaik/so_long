@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:21:51 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 07:50:57 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/06/30 13:19:00 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2
@@ -37,9 +37,9 @@ typedef struct dimensions
 	mlx_t	*mlx;
 	char	**ptr;
 	void	*param;
-	void	*img[7];
+	void	*img[8];
 	char	**backup;
-	void	*texture[7];
+	void	*texture[8];
 }			t_var;
 
 int			ft_printf(const char *format, ...);
@@ -78,5 +78,7 @@ void		var_inis(t_var *p);
 void		exit_func(void *param);
 void		ft_terminate(t_var *p, int n);
 void		check_img_texture(t_var *p);
+char		*ft_itoa(int n);
+void		print_moves(t_var *p, int c);
 
 #endif

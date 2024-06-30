@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 11:02:08 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 10:13:35 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/06/30 13:17:22 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	set_img(int i, int j, t_var *p, int direction)
 {
@@ -51,6 +51,27 @@ void	imgs_loop(int y, int x, t_var *p)
 	}
 }
 
+void	print_moves(t_var *p, int c)
+{
+	const char	*ptr;
+
+	if (c == 0)
+	{
+		mlx_image_to_window(p->mlx, p->img[7], 0, 0);
+		mlx_put_string(p->mlx, "moves : ", 20, 20);
+		ptr = (const char *)ft_itoa(0);
+		mlx_put_string(p->mlx, ptr, 90, 20);
+	}
+	else
+	{
+		p->moves++;
+		mlx_image_to_window(p->mlx, p->img[7], 0, 0);
+		mlx_put_string(p->mlx, "moves : ", 20, 20);
+		ptr = (const char *)ft_itoa(p->moves);
+		mlx_put_string(p->mlx, ptr, 90, 20);
+	}
+}
+
 void	fill_ground(t_var *p)
 {
 	int	i;
@@ -70,6 +91,7 @@ void	fill_ground(t_var *p)
 	}
 	imgs_loop(p->h, p->w, p);
 	mlx_close_hook(p->mlx, exit_func, p);
+	print_moves(p, 0);
 	mlx_key_hook(p->mlx, key_func, p);
 	mlx_loop(p->mlx);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_func.c                                       :+:      :+:    :+:   */
+/*   libft_func_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 12:29:02 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 10:11:16 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/06/30 12:20:12 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -71,13 +71,14 @@ void	var_inis(t_var *p)
 
 void	img_inis(t_var *p)
 {
-	p->texture[0] = mlx_load_png("mandatory/textures/grass.png");
-	p->texture[1] = mlx_load_png("mandatory/textures/wall.png");
-	p->texture[2] = mlx_load_png("mandatory/textures/door.png");
-	p->texture[3] = mlx_load_png("mandatory/textures/carrot.png");
-	p->texture[4] = mlx_load_png("mandatory/textures/direct.png");
-	p->texture[5] = mlx_load_png("mandatory/textures/right.png");
-	p->texture[6] = mlx_load_png("mandatory/textures/left.png");
+	p->texture[0] = mlx_load_png("bonus/textures/grass.png");
+	p->texture[1] = mlx_load_png("bonus/textures/wall.png");
+	p->texture[2] = mlx_load_png("bonus/textures/door.png");
+	p->texture[3] = mlx_load_png("bonus/textures/carrot.png");
+	p->texture[4] = mlx_load_png("bonus/textures/direct.png");
+	p->texture[5] = mlx_load_png("bonus/textures/right.png");
+	p->texture[6] = mlx_load_png("bonus/textures/left.png");
+	p->texture[7] = mlx_load_png("bonus/textures/moves.png");
 	check_img_texture(p);
 	p->img[0] = mlx_texture_to_image(p->mlx, p->texture[0]);
 	p->img[1] = mlx_texture_to_image(p->mlx, p->texture[1]);
@@ -86,4 +87,5 @@ void	img_inis(t_var *p)
 	p->img[4] = mlx_texture_to_image(p->mlx, p->texture[4]);
 	p->img[5] = mlx_texture_to_image(p->mlx, p->texture[5]);
 	p->img[6] = mlx_texture_to_image(p->mlx, p->texture[6]);
+	p->img[7] = mlx_texture_to_image(p->mlx, p->texture[7]);
 }
