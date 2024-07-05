@@ -6,7 +6,7 @@
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 11:02:08 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 13:17:22 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/07/05 13:57:54 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,24 @@ void	imgs_loop(int y, int x, t_var *p)
 
 void	print_moves(t_var *p, int c)
 {
-	const char	*ptr;
+	char	*ptr;
 
 	if (c == 0)
 	{
 		mlx_image_to_window(p->mlx, p->img[7], 0, 0);
-		mlx_put_string(p->mlx, "moves : ", 20, 20);
-		ptr = (const char *)ft_itoa(0);
-		mlx_put_string(p->mlx, ptr, 90, 20);
+		mlx_put_string(p->mlx, "Moves:", 20, 20);
+		ptr = ft_itoa(0);
+		mlx_put_string(p->mlx, ptr, 80, 20);
 	}
 	else
 	{
 		p->moves++;
 		mlx_image_to_window(p->mlx, p->img[7], 0, 0);
-		mlx_put_string(p->mlx, "moves : ", 20, 20);
-		ptr = (const char *)ft_itoa(p->moves);
-		mlx_put_string(p->mlx, ptr, 90, 20);
+		mlx_put_string(p->mlx, "Moves:", 20, 20);
+		ptr = ft_itoa(p->moves);
+		mlx_put_string(p->mlx, ptr, 80, 20);
 	}
+	free(ptr);
 }
 
 void	fill_ground(t_var *p)

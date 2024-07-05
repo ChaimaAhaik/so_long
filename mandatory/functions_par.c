@@ -6,7 +6,7 @@
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:52:43 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 10:05:15 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/07/04 16:44:11 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,21 @@ int	checks(char *p, int x, int j, int y)
 		while (p[i])
 		{
 			if (p[i] != '1')
+			{
+				if (j == y - 1 && p[i] != '\n')
+					return (write (2, "Error\nInvalid Character\n", 24), 1);
 				break ;
+			}
 			i++;
 		}
 	}
 	else
 	{
-		while (p[i] == '1' || p[i] == '0' 
-			|| p[i] == 'P' || p[i] == 'C' 
-			|| p[i] == 'E')
-			i++;
+		if (help_for_check(p, &i) == 1)
+			return (1);
 	}
 	if (i != x || p[0] != '1' || p[i - 1] != '1')
-	{
-		write (2, "Error\nmap invalid:", 18);
-		return (write(2, "size of line or invalid character\n", 34), 1);
-	}
+		return (write(2, "Error\nsize of line or invalid character\n", 40), 1);
 	return (0);
 }
 

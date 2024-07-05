@@ -6,7 +6,7 @@
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 11:42:46 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 10:22:42 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/07/05 12:03:30 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,16 @@ char	*get_next_line(int fd)
 		return (free(tmp), line);
 	}
 	return (NULL);
+}
+
+int	help_for_check(char *p, int *i)
+{
+	while (p[*i] && p[*i] != '\n')
+	{
+		if (p[*i] != '1' && p[*i] != '0' && p[*i] != 'P' && p[*i] != 'C' 
+			&& p[*i] != 'E')
+			return (write (2, "Error\nInvalid Character\n", 24), 1);
+		(*i)++;
+	}
+	return (0);
 }

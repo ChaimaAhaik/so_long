@@ -6,11 +6,23 @@
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 11:02:08 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 10:13:35 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/07/04 16:49:20 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	help_for_check(char *p, int *i)
+{
+	while (p[*i] && p[*i] != '\n')
+	{
+		if (p[*i] != '1' && p[*i] != '0' && p[*i] != 'P' && p[*i] != 'C' 
+			&& p[*i] != 'E')
+			return (write (2, "Error\nInvalid Character\n", 24), 1);
+		(*i)++;
+	}
+	return (0);
+}
 
 void	set_img(int i, int j, t_var *p, int direction)
 {

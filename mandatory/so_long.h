@@ -6,7 +6,7 @@
 /*   By: cahaik <cahaik@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:21:51 by cahaik            #+#    #+#             */
-/*   Updated: 2024/06/30 07:50:57 by cahaik           ###   ########.fr       */
+/*   Updated: 2024/07/04 16:45:16 by cahaik           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void		var_inis(t_var *p);
 void		exit_func(void *param);
 void		ft_terminate(t_var *p, int n);
 void		check_img_texture(t_var *p);
+int			help_for_check(char *p, int *i);
 
 #endif
